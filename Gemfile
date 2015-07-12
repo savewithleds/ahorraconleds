@@ -44,8 +44,6 @@ group :development, :test do
 
   gem 'prawn'
 
-  gem 'activeadmin', '~> 1.0.0.pre1'
-
   gem 'devise'
 
   gem 'cancan' # or cancancan
@@ -54,7 +52,8 @@ group :development, :test do
 
 group :production do
   gem 'pg', '0.15.1'
-  gem 'rails_12factor', '0.0.2' 
+  gem 'rails_12factor', '0.0.2'
+  gem 'activeadmin', '~> 1.0.0.pre1'
 end
 
 end
