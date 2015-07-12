@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  postalcode: 1
+  telephone: 1
+  refcode: 1
+  annualsave: 9.99
+  monthlysave: 9.99
+  percentsave: 9.99
+  annualcurrentcost: 9.99
+  installationcost: 9.99
+  monthlyamortization: 1
+
+two:
+  email: MyString
+  postalcode: 1
+  telephone: 1
+  refcode: 1
+  annualsave: 9.99
+  monthlysave: 9.99
+  percentsave: 9.99
+  annualcurrentcost: 9.99
+  installationcost: 9.99
+  monthlyamortization: 1

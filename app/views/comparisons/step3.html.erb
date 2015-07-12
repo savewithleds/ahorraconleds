@@ -1,0 +1,64 @@
+<%= csrf_meta_tags %>
+
+<%= stylesheet_link_tag "steps.css"%>
+
+<%= javascript_include_tag "steps.coffee" %>
+
+<div class="form-horizontal">
+  <fieldset>
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <!-- Form Name -->
+        <legend>Confirma tus datos</legend>
+        <%= form_for(@comparison) do |f| %>
+          <div class="row">
+            <div class="col-xs-5">
+              <label>Tu Email</label>
+              <%= f.text_field :email, placeholder: "miemail@xxxxx.xxx", class: "form-control input-md", required: "", type:"email" %>
+            </div>
+            <div class="col-xs-3">
+              <label>Código postal</label>
+              <%= f.text_field :postalcode, placeholder: "xxxxx", class: "form-control input-md", required: "" %>
+            </div>
+            <div class="col-xs-4">
+              <label>Teléfono</label>
+               <%= f.text_field :telephone, placeholder: "xxx xxx xxx", class: "form-control input-md" %>
+            </div>
+          </div>
+          
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Cantidad</th>
+                  <th>Horas/día</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @lightings.where("comparison_id LIKE ?", @comparison.id ).to_a.each do |light| %>    
+                  <tr>
+                    <td><%= @bulbs.find(light.bulb_id).kind %></td>
+                    <td><%= light.quantity %></td>
+                    <td><%= light.hoursday %></td>
+                  </tr>
+                <%end%>
+              </tbody>
+            </table>
+          </div>
+            
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="continue"></label>
+            <div class="col-md-8">
+              <%= f.submit "Finalizar", class: "btn btn-success" %>
+            </div>
+          </div>
+        <%end%>
+      
+      </div>
+    </div>
+  </fieldset>
+</div>
+</div>

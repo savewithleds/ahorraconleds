@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bulb_id: 1
+  quantity: 1
+  hoursday: 1
+  comparison_id: 1
+
+two:
+  bulb_id: 1
+  quantity: 1
+  hoursday: 1
+  comparison_id: 1

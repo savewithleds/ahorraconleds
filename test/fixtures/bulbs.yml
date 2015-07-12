@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kind: MyString
+  kindkw: 9.99
+  ledequivalence: MyString
+  ledequivalencekw: 9.99
+  ledprice: 9.99
+
+two:
+  kind: MyString
+  kindkw: 9.99
+  ledequivalence: MyString
+  ledequivalencekw: 9.99
+  ledprice: 9.99

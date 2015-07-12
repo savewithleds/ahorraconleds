@@ -1,0 +1,89 @@
+
+<%= csrf_meta_tags %>
+
+<%= stylesheet_link_tag "steps.css"%>
+
+<%= javascript_include_tag "steps.coffee" %>
+
+<div class="form-horizontal">
+  <fieldset>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <!-- Form Name -->
+        <legend>Iluminación Actual</legend>
+          <%= form_for(@lighting) do |l|%>
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="kind">Tipo de iluminación</label>
+            <div class="col-md-8">
+              <%= l.collection_select(:bulb_id, @bulbs, :id, :kind) %>
+            </div>
+          </div>
+
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="quantity">Cantidad</label>
+            <div class="col-md-4">
+              <%= l.text_field :quantity, placeholder: "Nº de bombillas", class: "form-control input-md", required: ""%>
+            </div>
+          </div>
+
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="hoursday">Nº de horas</label>
+            <div class="col-md-4">
+              <%= l.select(:hoursday) do %>
+                <% for h in 1..24 %>
+                  <% [["#{h}", h]].each do |c| -%>
+                    <%= content_tag(:option, c.first, value: c.last) %>
+                  <% end %>
+                <% end %>
+              <%end%>
+            </div>
+          </div>
+
+          <!-- Button (Double) -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="select">Seleccione</label>
+            <div class="col-md-8">
+              <%= l.submit "Añadir otra", class: "btn btn-warning" %>
+              <%= l.submit "Continuar", class: "btn btn-success", name: "continue"%>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nº bombillas</th>
+              <th>Tipo</th>
+              <th>Nº Horas</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @lightings.where("comparison_id LIKE ?", @comparison ).to_a.each do |light| %>    
+            <tr>
+              <td><%= light.quantity %></td>
+              <td><%= @bulbs.find(light.bulb_id).kind %></td>
+              <td><%= light.hoursday %></td>
+              <td>
+                <%= link_to "Eliminar", light, method: :delete%>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+     
+  </div>
+</div>
+</div>

@@ -1,0 +1,52 @@
+<html>
+  <body>
+  	<div>
+  	<%="Estimado usuario,"%>
+  	</div>
+  	<div>
+	<%="Gracias por confiar en Integra energía, esperamos que esta comparativa le sea de utilidad."%>
+	</div>
+	<div>
+	<%="Comparativa correspondiente al número de referencia: #{@comparison.refcode}"%>
+	</div>
+    <legend><h3>¡Este es tu ahorro!</h3></legend>
+          <div class="row">
+            <div class="col-xs-9">
+              <label>Ahorro anual en €: </label>
+              <%= @comparison.annualsave %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-9">
+              <label>Porcentaje de ahorro: </label>
+              <%= @comparison.percentsave %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-9">
+              <label>Ahorro mensual en €: </label>
+              <%= @comparison.monthlysave %>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="col-xs-9">
+              <label>Coste de instalación en €: </label>
+              <%= @comparison.installationcost %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-9">
+              <label>Plazo de amortización en meses: </label>
+              <%= @comparison.monthlyamortization %>
+    		</div>
+    </div> 
+
+  
+    <div>
+    <%="Muchas gracias,"%>
+  	</div>
+  	<div>
+    <%="Integra Energía."%>
+  	</div>
+  </body>
+</html>

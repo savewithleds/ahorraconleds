@@ -1,0 +1,77 @@
+<%= csrf_meta_tags %>
+
+<%= stylesheet_link_tag "steps.css"%>
+
+<%= javascript_include_tag "steps.coffee" %>
+
+<div class="form-horizontal">
+    <fieldset>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <!-- Form Name -->
+          <legend>Datos Personales</legend>
+          <%= form_for(@comparison) do |c|%>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="email">Email:</label>  
+            <div class="col-md-5">
+              <%= c.text_field :email, placeholder: "miemail@xxxxx.xxx", class: "form-control input-md", required: "", type:"email" %>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="postalcode">Código Postal:</label>  
+            <div class="col-md-3">
+              <%= c.text_field :postalcode, placeholder: "xxxxx", class: "form-control input-md", required: "" %>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="telephone">Teléfono:</label>  
+            <div class="col-md-3">
+              <%= c.text_field :telephone, placeholder: "xxx xxx xxx", class: "form-control input-md" %>
+              <span class="help-block">*No obligatorio</span>  
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="politics">He leído y acepto la política de privacidad</label>
+            <div class="col-md-6">
+              <label class="checkbox inline" for="checkboxes-0">
+                <input name="politics" id="checkboxes-0" value="yes" type="checkbox" required="">
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="continue">Primer paso completo:</label>
+            <div class="col-md-8">
+              <%= c.submit "Continuar", class: "btn btn-lg btn-success", name: "continue" %>
+            </div>
+          </div>
+          
+        <%end%>
+      </div>
+    </div>
+  </fieldset>
+</div>
+</div>
+<div class="col-lg-3">
+  <div class="well sidebar-nav">
+    <legend>Opciones:</legend>
+    <ul class="nav nav-list">
+      <div class="form-group">
+      <li class="nav-header">¿Ya tiene una? Introduzca su código de referencia</li>
+      </div>
+        <%= form_for(@comparison) do |c|%>
+        <div class="form-group">
+          <li><%= c.text_field :refcode, placeholder: "Cód.Referencia", required: "", class: "col-md-12" %></li>
+          </div>
+          <%= c.submit "Recuperar", class: "btn btn-lg btn-success", name: "getcomparison"%>
+        <%end%>   
+    </ul>
+  </div><!--/.well -->
+</div><!--/span-->
+

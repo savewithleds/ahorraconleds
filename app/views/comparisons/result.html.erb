@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="davidfs">
+    <%= favicon_link_tag 'favicon.ico' %>
+    <title>Integra Energía: Ahorra con Leds</title>
+ 
+<%= csrf_meta_tags %>
+
+<%= stylesheet_link_tag "welcome.css"%>
+<%= stylesheet_link_tag "application.css"%>
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<%= javascript_include_tag "welcome.coffee" %>
+<%= javascript_include_tag "application.js" %>
+
+<div class="form-horizontal">
+  <fieldset>
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <!-- Form Name -->
+        <legend><h3>¡Este es tu ahorro!</h3></legend>
+          <div class="row">
+            <div class="col-xs-9">
+              <label>Ahorro anual en €: </label>
+              <%= @comparison.annualsave %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-9">
+              <label>Porcentaje de ahorro: </label>
+              <%= @comparison.percentsave %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-9">
+              <label>Ahorro mensual en €: </label>
+              <%= @comparison.monthlysave %>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="col-xs-9">
+              <label>Coste de instalación en €: </label>
+              <%= @comparison.installationcost %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-9">
+              <label>Plazo de amortización en meses: </label>
+              <%= @comparison.monthlyamortization %>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="col-xs-12">
+              <p> Este es tu código para volver a visualizar tu comparativa:  <strong><%= @comparison.refcode %></strong> </p>
+              <p> También puedes verla <%= link_to "aquí", mostrarpdf_path(session[:compid], :format => "pdf")%> </p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+</div>
+<div class="col-lg-3">
+  <div class="well sidebar-nav">
+    <legend>Opciones:</legend>
+    <ul class="nav nav-list"> 
+        <li>
+          <%= link_to "Descargar Comparativa", descargarpdf_path(session[:compid], :format => "pdf") %>
+        </li>
+    </ul>
+  </div><!--/.well -->
+</div><!--/span-->
