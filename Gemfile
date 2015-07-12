@@ -44,16 +44,15 @@ group :development, :test do
 
   gem 'prawn'
 
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
+  gem 'activeadmin', '~> 1.0.0.pre1'
   gem 'devise'
 
   gem 'cancan' # or cancancan
   gem 'draper'
   gem 'pundit'
-
-group :production do
-  gem 'pg', '0.15.1'
-  gem 'rails_12factor', '0.0.2'
-  gem 'activeadmin', '~> 1.0.0.pre1'
 end
 
 end
